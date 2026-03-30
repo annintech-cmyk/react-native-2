@@ -12,9 +12,7 @@ import { useColorScheme } from "@/hooks/use-color-scheme";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import React from "react";
 
-export const unstable_settings = {
-  anchor: "(tabs)",
-};
+
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
@@ -26,6 +24,11 @@ export default function RootLayout() {
     <QueryClientProvider client={queryClient}>
       <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
         <Stack>
+
+          <Stack.Screen
+            name="splashscreen"
+            options={{ headerShown: false }}
+          />
           <Stack.Screen
             name="screens/(tabs)"
             options={{ headerShown: false }}
